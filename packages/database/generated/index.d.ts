@@ -6315,7 +6315,9 @@ export namespace Prisma {
     duration: number | null
     episodeNumber: number | null
     mediaUrl: string | null
+    mediaKey: string | null
     isVideo: boolean | null
+    isPremium: boolean | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -6329,7 +6331,9 @@ export namespace Prisma {
     duration: number | null
     episodeNumber: number | null
     mediaUrl: string | null
+    mediaKey: string | null
     isVideo: boolean | null
+    isPremium: boolean | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -6343,7 +6347,9 @@ export namespace Prisma {
     duration: number
     episodeNumber: number
     mediaUrl: number
+    mediaKey: number
     isVideo: number
+    isPremium: number
     createdAt: number
     updatedAt: number
     _all: number
@@ -6369,7 +6375,9 @@ export namespace Prisma {
     duration?: true
     episodeNumber?: true
     mediaUrl?: true
+    mediaKey?: true
     isVideo?: true
+    isPremium?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -6383,7 +6391,9 @@ export namespace Prisma {
     duration?: true
     episodeNumber?: true
     mediaUrl?: true
+    mediaKey?: true
     isVideo?: true
+    isPremium?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -6397,7 +6407,9 @@ export namespace Prisma {
     duration?: true
     episodeNumber?: true
     mediaUrl?: true
+    mediaKey?: true
     isVideo?: true
+    isPremium?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -6498,7 +6510,9 @@ export namespace Prisma {
     duration: number
     episodeNumber: number
     mediaUrl: string | null
+    mediaKey: string | null
     isVideo: boolean
+    isPremium: boolean
     createdAt: Date
     updatedAt: Date
     _count: EpisodeCountAggregateOutputType | null
@@ -6531,7 +6545,9 @@ export namespace Prisma {
     duration?: boolean
     episodeNumber?: boolean
     mediaUrl?: boolean
+    mediaKey?: boolean
     isVideo?: boolean
+    isPremium?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     content?: boolean | ContentDefaultArgs<ExtArgs>
@@ -6550,7 +6566,9 @@ export namespace Prisma {
     duration?: boolean
     episodeNumber?: boolean
     mediaUrl?: boolean
+    mediaKey?: boolean
     isVideo?: boolean
+    isPremium?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     content?: boolean | ContentDefaultArgs<ExtArgs>
@@ -6565,7 +6583,9 @@ export namespace Prisma {
     duration?: boolean
     episodeNumber?: boolean
     mediaUrl?: boolean
+    mediaKey?: boolean
     isVideo?: boolean
+    isPremium?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     content?: boolean | ContentDefaultArgs<ExtArgs>
@@ -6580,12 +6600,14 @@ export namespace Prisma {
     duration?: boolean
     episodeNumber?: boolean
     mediaUrl?: boolean
+    mediaKey?: boolean
     isVideo?: boolean
+    isPremium?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type EpisodeOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "contentId" | "title" | "slug" | "description" | "duration" | "episodeNumber" | "mediaUrl" | "isVideo" | "createdAt" | "updatedAt", ExtArgs["result"]["episode"]>
+  export type EpisodeOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "contentId" | "title" | "slug" | "description" | "duration" | "episodeNumber" | "mediaUrl" | "mediaKey" | "isVideo" | "isPremium" | "createdAt" | "updatedAt", ExtArgs["result"]["episode"]>
   export type EpisodeInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     content?: boolean | ContentDefaultArgs<ExtArgs>
     playbackStates?: boolean | Episode$playbackStatesArgs<ExtArgs>
@@ -6617,7 +6639,9 @@ export namespace Prisma {
       duration: number
       episodeNumber: number
       mediaUrl: string | null
+      mediaKey: string | null
       isVideo: boolean
+      isPremium: boolean
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["episode"]>
@@ -7055,7 +7079,9 @@ export namespace Prisma {
     readonly duration: FieldRef<"Episode", 'Int'>
     readonly episodeNumber: FieldRef<"Episode", 'Int'>
     readonly mediaUrl: FieldRef<"Episode", 'String'>
+    readonly mediaKey: FieldRef<"Episode", 'String'>
     readonly isVideo: FieldRef<"Episode", 'Boolean'>
+    readonly isPremium: FieldRef<"Episode", 'Boolean'>
     readonly createdAt: FieldRef<"Episode", 'DateTime'>
     readonly updatedAt: FieldRef<"Episode", 'DateTime'>
   }
@@ -10724,9 +10750,11 @@ export namespace Prisma {
     userId: string | null
     contentId: string | null
     gateway: string | null
+    gatewayName: string | null
     gatewayRef: string | null
     amount: number | null
     status: string | null
+    completedAt: Date | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -10736,9 +10764,11 @@ export namespace Prisma {
     userId: string | null
     contentId: string | null
     gateway: string | null
+    gatewayName: string | null
     gatewayRef: string | null
     amount: number | null
     status: string | null
+    completedAt: Date | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -10748,9 +10778,11 @@ export namespace Prisma {
     userId: number
     contentId: number
     gateway: number
+    gatewayName: number
     gatewayRef: number
     amount: number
     status: number
+    completedAt: number
     createdAt: number
     updatedAt: number
     _all: number
@@ -10770,9 +10802,11 @@ export namespace Prisma {
     userId?: true
     contentId?: true
     gateway?: true
+    gatewayName?: true
     gatewayRef?: true
     amount?: true
     status?: true
+    completedAt?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -10782,9 +10816,11 @@ export namespace Prisma {
     userId?: true
     contentId?: true
     gateway?: true
+    gatewayName?: true
     gatewayRef?: true
     amount?: true
     status?: true
+    completedAt?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -10794,9 +10830,11 @@ export namespace Prisma {
     userId?: true
     contentId?: true
     gateway?: true
+    gatewayName?: true
     gatewayRef?: true
     amount?: true
     status?: true
+    completedAt?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -10893,9 +10931,11 @@ export namespace Prisma {
     userId: string
     contentId: string | null
     gateway: string
+    gatewayName: string | null
     gatewayRef: string
     amount: number
     status: string
+    completedAt: Date | null
     createdAt: Date
     updatedAt: Date
     _count: PurchaseCountAggregateOutputType | null
@@ -10924,9 +10964,11 @@ export namespace Prisma {
     userId?: boolean
     contentId?: boolean
     gateway?: boolean
+    gatewayName?: boolean
     gatewayRef?: boolean
     amount?: boolean
     status?: boolean
+    completedAt?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
@@ -10937,9 +10979,11 @@ export namespace Prisma {
     userId?: boolean
     contentId?: boolean
     gateway?: boolean
+    gatewayName?: boolean
     gatewayRef?: boolean
     amount?: boolean
     status?: boolean
+    completedAt?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
@@ -10950,9 +10994,11 @@ export namespace Prisma {
     userId?: boolean
     contentId?: boolean
     gateway?: boolean
+    gatewayName?: boolean
     gatewayRef?: boolean
     amount?: boolean
     status?: boolean
+    completedAt?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
@@ -10963,14 +11009,16 @@ export namespace Prisma {
     userId?: boolean
     contentId?: boolean
     gateway?: boolean
+    gatewayName?: boolean
     gatewayRef?: boolean
     amount?: boolean
     status?: boolean
+    completedAt?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type PurchaseOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "contentId" | "gateway" | "gatewayRef" | "amount" | "status" | "createdAt" | "updatedAt", ExtArgs["result"]["purchase"]>
+  export type PurchaseOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "contentId" | "gateway" | "gatewayName" | "gatewayRef" | "amount" | "status" | "completedAt" | "createdAt" | "updatedAt", ExtArgs["result"]["purchase"]>
   export type PurchaseInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
   }
@@ -10991,9 +11039,11 @@ export namespace Prisma {
       userId: string
       contentId: string | null
       gateway: string
+      gatewayName: string | null
       gatewayRef: string
       amount: number
       status: string
+      completedAt: Date | null
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["purchase"]>
@@ -11424,9 +11474,11 @@ export namespace Prisma {
     readonly userId: FieldRef<"Purchase", 'String'>
     readonly contentId: FieldRef<"Purchase", 'String'>
     readonly gateway: FieldRef<"Purchase", 'String'>
+    readonly gatewayName: FieldRef<"Purchase", 'String'>
     readonly gatewayRef: FieldRef<"Purchase", 'String'>
     readonly amount: FieldRef<"Purchase", 'Int'>
     readonly status: FieldRef<"Purchase", 'String'>
+    readonly completedAt: FieldRef<"Purchase", 'DateTime'>
     readonly createdAt: FieldRef<"Purchase", 'DateTime'>
     readonly updatedAt: FieldRef<"Purchase", 'DateTime'>
   }
@@ -17223,11 +17275,13 @@ export namespace Prisma {
   export type PlaybackStateAvgAggregateOutputType = {
     position: number | null
     duration: number | null
+    playbackSpeed: number | null
   }
 
   export type PlaybackStateSumAggregateOutputType = {
     position: number | null
     duration: number | null
+    playbackSpeed: number | null
   }
 
   export type PlaybackStateMinAggregateOutputType = {
@@ -17236,6 +17290,9 @@ export namespace Prisma {
     episodeId: string | null
     position: number | null
     duration: number | null
+    playbackSpeed: number | null
+    isCompleted: boolean | null
+    deviceId: string | null
     lastPlayedAt: Date | null
   }
 
@@ -17245,6 +17302,9 @@ export namespace Prisma {
     episodeId: string | null
     position: number | null
     duration: number | null
+    playbackSpeed: number | null
+    isCompleted: boolean | null
+    deviceId: string | null
     lastPlayedAt: Date | null
   }
 
@@ -17254,6 +17314,9 @@ export namespace Prisma {
     episodeId: number
     position: number
     duration: number
+    playbackSpeed: number
+    isCompleted: number
+    deviceId: number
     lastPlayedAt: number
     _all: number
   }
@@ -17262,11 +17325,13 @@ export namespace Prisma {
   export type PlaybackStateAvgAggregateInputType = {
     position?: true
     duration?: true
+    playbackSpeed?: true
   }
 
   export type PlaybackStateSumAggregateInputType = {
     position?: true
     duration?: true
+    playbackSpeed?: true
   }
 
   export type PlaybackStateMinAggregateInputType = {
@@ -17275,6 +17340,9 @@ export namespace Prisma {
     episodeId?: true
     position?: true
     duration?: true
+    playbackSpeed?: true
+    isCompleted?: true
+    deviceId?: true
     lastPlayedAt?: true
   }
 
@@ -17284,6 +17352,9 @@ export namespace Prisma {
     episodeId?: true
     position?: true
     duration?: true
+    playbackSpeed?: true
+    isCompleted?: true
+    deviceId?: true
     lastPlayedAt?: true
   }
 
@@ -17293,6 +17364,9 @@ export namespace Prisma {
     episodeId?: true
     position?: true
     duration?: true
+    playbackSpeed?: true
+    isCompleted?: true
+    deviceId?: true
     lastPlayedAt?: true
     _all?: true
   }
@@ -17389,6 +17463,9 @@ export namespace Prisma {
     episodeId: string
     position: number
     duration: number
+    playbackSpeed: number
+    isCompleted: boolean
+    deviceId: string | null
     lastPlayedAt: Date
     _count: PlaybackStateCountAggregateOutputType | null
     _avg: PlaybackStateAvgAggregateOutputType | null
@@ -17417,6 +17494,9 @@ export namespace Prisma {
     episodeId?: boolean
     position?: boolean
     duration?: boolean
+    playbackSpeed?: boolean
+    isCompleted?: boolean
+    deviceId?: boolean
     lastPlayedAt?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
     episode?: boolean | EpisodeDefaultArgs<ExtArgs>
@@ -17428,6 +17508,9 @@ export namespace Prisma {
     episodeId?: boolean
     position?: boolean
     duration?: boolean
+    playbackSpeed?: boolean
+    isCompleted?: boolean
+    deviceId?: boolean
     lastPlayedAt?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
     episode?: boolean | EpisodeDefaultArgs<ExtArgs>
@@ -17439,6 +17522,9 @@ export namespace Prisma {
     episodeId?: boolean
     position?: boolean
     duration?: boolean
+    playbackSpeed?: boolean
+    isCompleted?: boolean
+    deviceId?: boolean
     lastPlayedAt?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
     episode?: boolean | EpisodeDefaultArgs<ExtArgs>
@@ -17450,10 +17536,13 @@ export namespace Prisma {
     episodeId?: boolean
     position?: boolean
     duration?: boolean
+    playbackSpeed?: boolean
+    isCompleted?: boolean
+    deviceId?: boolean
     lastPlayedAt?: boolean
   }
 
-  export type PlaybackStateOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "episodeId" | "position" | "duration" | "lastPlayedAt", ExtArgs["result"]["playbackState"]>
+  export type PlaybackStateOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "episodeId" | "position" | "duration" | "playbackSpeed" | "isCompleted" | "deviceId" | "lastPlayedAt", ExtArgs["result"]["playbackState"]>
   export type PlaybackStateInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
     episode?: boolean | EpisodeDefaultArgs<ExtArgs>
@@ -17479,6 +17568,9 @@ export namespace Prisma {
       episodeId: string
       position: number
       duration: number
+      playbackSpeed: number
+      isCompleted: boolean
+      deviceId: string | null
       lastPlayedAt: Date
     }, ExtArgs["result"]["playbackState"]>
     composites: {}
@@ -17910,6 +18002,9 @@ export namespace Prisma {
     readonly episodeId: FieldRef<"PlaybackState", 'String'>
     readonly position: FieldRef<"PlaybackState", 'Int'>
     readonly duration: FieldRef<"PlaybackState", 'Int'>
+    readonly playbackSpeed: FieldRef<"PlaybackState", 'Float'>
+    readonly isCompleted: FieldRef<"PlaybackState", 'Boolean'>
+    readonly deviceId: FieldRef<"PlaybackState", 'String'>
     readonly lastPlayedAt: FieldRef<"PlaybackState", 'DateTime'>
   }
     
@@ -18331,8 +18426,18 @@ export namespace Prisma {
 
   export type AggregateDownload = {
     _count: DownloadCountAggregateOutputType | null
+    _avg: DownloadAvgAggregateOutputType | null
+    _sum: DownloadSumAggregateOutputType | null
     _min: DownloadMinAggregateOutputType | null
     _max: DownloadMaxAggregateOutputType | null
+  }
+
+  export type DownloadAvgAggregateOutputType = {
+    fileSize: number | null
+  }
+
+  export type DownloadSumAggregateOutputType = {
+    fileSize: number | null
   }
 
   export type DownloadMinAggregateOutputType = {
@@ -18340,6 +18445,10 @@ export namespace Prisma {
     userId: string | null
     episodeId: string | null
     status: $Enums.DownloadStatus | null
+    quality: string | null
+    fileSize: number | null
+    localPath: string | null
+    completedAt: Date | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -18349,6 +18458,10 @@ export namespace Prisma {
     userId: string | null
     episodeId: string | null
     status: $Enums.DownloadStatus | null
+    quality: string | null
+    fileSize: number | null
+    localPath: string | null
+    completedAt: Date | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -18358,17 +18471,33 @@ export namespace Prisma {
     userId: number
     episodeId: number
     status: number
+    quality: number
+    fileSize: number
+    localPath: number
+    completedAt: number
     createdAt: number
     updatedAt: number
     _all: number
   }
 
 
+  export type DownloadAvgAggregateInputType = {
+    fileSize?: true
+  }
+
+  export type DownloadSumAggregateInputType = {
+    fileSize?: true
+  }
+
   export type DownloadMinAggregateInputType = {
     id?: true
     userId?: true
     episodeId?: true
     status?: true
+    quality?: true
+    fileSize?: true
+    localPath?: true
+    completedAt?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -18378,6 +18507,10 @@ export namespace Prisma {
     userId?: true
     episodeId?: true
     status?: true
+    quality?: true
+    fileSize?: true
+    localPath?: true
+    completedAt?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -18387,6 +18520,10 @@ export namespace Prisma {
     userId?: true
     episodeId?: true
     status?: true
+    quality?: true
+    fileSize?: true
+    localPath?: true
+    completedAt?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -18430,6 +18567,18 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
+     * Select which fields to average
+    **/
+    _avg?: DownloadAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: DownloadSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
      * Select which fields to find the minimum value
     **/
     _min?: DownloadMinAggregateInputType
@@ -18460,6 +18609,8 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: DownloadCountAggregateInputType | true
+    _avg?: DownloadAvgAggregateInputType
+    _sum?: DownloadSumAggregateInputType
     _min?: DownloadMinAggregateInputType
     _max?: DownloadMaxAggregateInputType
   }
@@ -18469,9 +18620,15 @@ export namespace Prisma {
     userId: string
     episodeId: string
     status: $Enums.DownloadStatus
+    quality: string | null
+    fileSize: number
+    localPath: string | null
+    completedAt: Date | null
     createdAt: Date
     updatedAt: Date
     _count: DownloadCountAggregateOutputType | null
+    _avg: DownloadAvgAggregateOutputType | null
+    _sum: DownloadSumAggregateOutputType | null
     _min: DownloadMinAggregateOutputType | null
     _max: DownloadMaxAggregateOutputType | null
   }
@@ -18495,6 +18652,10 @@ export namespace Prisma {
     userId?: boolean
     episodeId?: boolean
     status?: boolean
+    quality?: boolean
+    fileSize?: boolean
+    localPath?: boolean
+    completedAt?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
@@ -18506,6 +18667,10 @@ export namespace Prisma {
     userId?: boolean
     episodeId?: boolean
     status?: boolean
+    quality?: boolean
+    fileSize?: boolean
+    localPath?: boolean
+    completedAt?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
@@ -18517,6 +18682,10 @@ export namespace Prisma {
     userId?: boolean
     episodeId?: boolean
     status?: boolean
+    quality?: boolean
+    fileSize?: boolean
+    localPath?: boolean
+    completedAt?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
@@ -18528,11 +18697,15 @@ export namespace Prisma {
     userId?: boolean
     episodeId?: boolean
     status?: boolean
+    quality?: boolean
+    fileSize?: boolean
+    localPath?: boolean
+    completedAt?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type DownloadOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "episodeId" | "status" | "createdAt" | "updatedAt", ExtArgs["result"]["download"]>
+  export type DownloadOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "episodeId" | "status" | "quality" | "fileSize" | "localPath" | "completedAt" | "createdAt" | "updatedAt", ExtArgs["result"]["download"]>
   export type DownloadInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
     episode?: boolean | EpisodeDefaultArgs<ExtArgs>
@@ -18557,6 +18730,10 @@ export namespace Prisma {
       userId: string
       episodeId: string
       status: $Enums.DownloadStatus
+      quality: string | null
+      fileSize: number
+      localPath: string | null
+      completedAt: Date | null
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["download"]>
@@ -18988,6 +19165,10 @@ export namespace Prisma {
     readonly userId: FieldRef<"Download", 'String'>
     readonly episodeId: FieldRef<"Download", 'String'>
     readonly status: FieldRef<"Download", 'DownloadStatus'>
+    readonly quality: FieldRef<"Download", 'String'>
+    readonly fileSize: FieldRef<"Download", 'Int'>
+    readonly localPath: FieldRef<"Download", 'String'>
+    readonly completedAt: FieldRef<"Download", 'DateTime'>
     readonly createdAt: FieldRef<"Download", 'DateTime'>
     readonly updatedAt: FieldRef<"Download", 'DateTime'>
   }
@@ -19476,7 +19657,9 @@ export namespace Prisma {
     duration: 'duration',
     episodeNumber: 'episodeNumber',
     mediaUrl: 'mediaUrl',
+    mediaKey: 'mediaKey',
     isVideo: 'isVideo',
+    isPremium: 'isPremium',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -19519,9 +19702,11 @@ export namespace Prisma {
     userId: 'userId',
     contentId: 'contentId',
     gateway: 'gateway',
+    gatewayName: 'gatewayName',
     gatewayRef: 'gatewayRef',
     amount: 'amount',
     status: 'status',
+    completedAt: 'completedAt',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -19589,6 +19774,9 @@ export namespace Prisma {
     episodeId: 'episodeId',
     position: 'position',
     duration: 'duration',
+    playbackSpeed: 'playbackSpeed',
+    isCompleted: 'isCompleted',
+    deviceId: 'deviceId',
     lastPlayedAt: 'lastPlayedAt'
   };
 
@@ -19600,6 +19788,10 @@ export namespace Prisma {
     userId: 'userId',
     episodeId: 'episodeId',
     status: 'status',
+    quality: 'quality',
+    fileSize: 'fileSize',
+    localPath: 'localPath',
+    completedAt: 'completedAt',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -19742,20 +19934,6 @@ export namespace Prisma {
 
 
   /**
-   * Reference to a field of type 'DownloadStatus'
-   */
-  export type EnumDownloadStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DownloadStatus'>
-    
-
-
-  /**
-   * Reference to a field of type 'DownloadStatus[]'
-   */
-  export type ListEnumDownloadStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DownloadStatus[]'>
-    
-
-
-  /**
    * Reference to a field of type 'Float'
    */
   export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -19766,6 +19944,20 @@ export namespace Prisma {
    * Reference to a field of type 'Float[]'
    */
   export type ListFloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'DownloadStatus'
+   */
+  export type EnumDownloadStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DownloadStatus'>
+    
+
+
+  /**
+   * Reference to a field of type 'DownloadStatus[]'
+   */
+  export type ListEnumDownloadStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DownloadStatus[]'>
     
   /**
    * Deep Input Types
@@ -20070,7 +20262,9 @@ export namespace Prisma {
     duration?: IntFilter<"Episode"> | number
     episodeNumber?: IntFilter<"Episode"> | number
     mediaUrl?: StringNullableFilter<"Episode"> | string | null
+    mediaKey?: StringNullableFilter<"Episode"> | string | null
     isVideo?: BoolFilter<"Episode"> | boolean
+    isPremium?: BoolFilter<"Episode"> | boolean
     createdAt?: DateTimeFilter<"Episode"> | Date | string
     updatedAt?: DateTimeFilter<"Episode"> | Date | string
     content?: XOR<ContentScalarRelationFilter, ContentWhereInput>
@@ -20088,7 +20282,9 @@ export namespace Prisma {
     duration?: SortOrder
     episodeNumber?: SortOrder
     mediaUrl?: SortOrderInput | SortOrder
+    mediaKey?: SortOrderInput | SortOrder
     isVideo?: SortOrder
+    isPremium?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     content?: ContentOrderByWithRelationInput
@@ -20109,7 +20305,9 @@ export namespace Prisma {
     duration?: IntFilter<"Episode"> | number
     episodeNumber?: IntFilter<"Episode"> | number
     mediaUrl?: StringNullableFilter<"Episode"> | string | null
+    mediaKey?: StringNullableFilter<"Episode"> | string | null
     isVideo?: BoolFilter<"Episode"> | boolean
+    isPremium?: BoolFilter<"Episode"> | boolean
     createdAt?: DateTimeFilter<"Episode"> | Date | string
     updatedAt?: DateTimeFilter<"Episode"> | Date | string
     content?: XOR<ContentScalarRelationFilter, ContentWhereInput>
@@ -20127,7 +20325,9 @@ export namespace Prisma {
     duration?: SortOrder
     episodeNumber?: SortOrder
     mediaUrl?: SortOrderInput | SortOrder
+    mediaKey?: SortOrderInput | SortOrder
     isVideo?: SortOrder
+    isPremium?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: EpisodeCountOrderByAggregateInput
@@ -20149,7 +20349,9 @@ export namespace Prisma {
     duration?: IntWithAggregatesFilter<"Episode"> | number
     episodeNumber?: IntWithAggregatesFilter<"Episode"> | number
     mediaUrl?: StringNullableWithAggregatesFilter<"Episode"> | string | null
+    mediaKey?: StringNullableWithAggregatesFilter<"Episode"> | string | null
     isVideo?: BoolWithAggregatesFilter<"Episode"> | boolean
+    isPremium?: BoolWithAggregatesFilter<"Episode"> | boolean
     createdAt?: DateTimeWithAggregatesFilter<"Episode"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Episode"> | Date | string
   }
@@ -20316,9 +20518,11 @@ export namespace Prisma {
     userId?: StringFilter<"Purchase"> | string
     contentId?: StringNullableFilter<"Purchase"> | string | null
     gateway?: StringFilter<"Purchase"> | string
+    gatewayName?: StringNullableFilter<"Purchase"> | string | null
     gatewayRef?: StringFilter<"Purchase"> | string
     amount?: IntFilter<"Purchase"> | number
     status?: StringFilter<"Purchase"> | string
+    completedAt?: DateTimeNullableFilter<"Purchase"> | Date | string | null
     createdAt?: DateTimeFilter<"Purchase"> | Date | string
     updatedAt?: DateTimeFilter<"Purchase"> | Date | string
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
@@ -20329,9 +20533,11 @@ export namespace Prisma {
     userId?: SortOrder
     contentId?: SortOrderInput | SortOrder
     gateway?: SortOrder
+    gatewayName?: SortOrderInput | SortOrder
     gatewayRef?: SortOrder
     amount?: SortOrder
     status?: SortOrder
+    completedAt?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     user?: UserOrderByWithRelationInput
@@ -20346,8 +20552,10 @@ export namespace Prisma {
     userId?: StringFilter<"Purchase"> | string
     contentId?: StringNullableFilter<"Purchase"> | string | null
     gateway?: StringFilter<"Purchase"> | string
+    gatewayName?: StringNullableFilter<"Purchase"> | string | null
     amount?: IntFilter<"Purchase"> | number
     status?: StringFilter<"Purchase"> | string
+    completedAt?: DateTimeNullableFilter<"Purchase"> | Date | string | null
     createdAt?: DateTimeFilter<"Purchase"> | Date | string
     updatedAt?: DateTimeFilter<"Purchase"> | Date | string
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
@@ -20358,9 +20566,11 @@ export namespace Prisma {
     userId?: SortOrder
     contentId?: SortOrderInput | SortOrder
     gateway?: SortOrder
+    gatewayName?: SortOrderInput | SortOrder
     gatewayRef?: SortOrder
     amount?: SortOrder
     status?: SortOrder
+    completedAt?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: PurchaseCountOrderByAggregateInput
@@ -20378,9 +20588,11 @@ export namespace Prisma {
     userId?: StringWithAggregatesFilter<"Purchase"> | string
     contentId?: StringNullableWithAggregatesFilter<"Purchase"> | string | null
     gateway?: StringWithAggregatesFilter<"Purchase"> | string
+    gatewayName?: StringNullableWithAggregatesFilter<"Purchase"> | string | null
     gatewayRef?: StringWithAggregatesFilter<"Purchase"> | string
     amount?: IntWithAggregatesFilter<"Purchase"> | number
     status?: StringWithAggregatesFilter<"Purchase"> | string
+    completedAt?: DateTimeNullableWithAggregatesFilter<"Purchase"> | Date | string | null
     createdAt?: DateTimeWithAggregatesFilter<"Purchase"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Purchase"> | Date | string
   }
@@ -20681,6 +20893,9 @@ export namespace Prisma {
     episodeId?: StringFilter<"PlaybackState"> | string
     position?: IntFilter<"PlaybackState"> | number
     duration?: IntFilter<"PlaybackState"> | number
+    playbackSpeed?: FloatFilter<"PlaybackState"> | number
+    isCompleted?: BoolFilter<"PlaybackState"> | boolean
+    deviceId?: StringNullableFilter<"PlaybackState"> | string | null
     lastPlayedAt?: DateTimeFilter<"PlaybackState"> | Date | string
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
     episode?: XOR<EpisodeScalarRelationFilter, EpisodeWhereInput>
@@ -20692,6 +20907,9 @@ export namespace Prisma {
     episodeId?: SortOrder
     position?: SortOrder
     duration?: SortOrder
+    playbackSpeed?: SortOrder
+    isCompleted?: SortOrder
+    deviceId?: SortOrderInput | SortOrder
     lastPlayedAt?: SortOrder
     user?: UserOrderByWithRelationInput
     episode?: EpisodeOrderByWithRelationInput
@@ -20707,6 +20925,9 @@ export namespace Prisma {
     episodeId?: StringFilter<"PlaybackState"> | string
     position?: IntFilter<"PlaybackState"> | number
     duration?: IntFilter<"PlaybackState"> | number
+    playbackSpeed?: FloatFilter<"PlaybackState"> | number
+    isCompleted?: BoolFilter<"PlaybackState"> | boolean
+    deviceId?: StringNullableFilter<"PlaybackState"> | string | null
     lastPlayedAt?: DateTimeFilter<"PlaybackState"> | Date | string
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
     episode?: XOR<EpisodeScalarRelationFilter, EpisodeWhereInput>
@@ -20718,6 +20939,9 @@ export namespace Prisma {
     episodeId?: SortOrder
     position?: SortOrder
     duration?: SortOrder
+    playbackSpeed?: SortOrder
+    isCompleted?: SortOrder
+    deviceId?: SortOrderInput | SortOrder
     lastPlayedAt?: SortOrder
     _count?: PlaybackStateCountOrderByAggregateInput
     _avg?: PlaybackStateAvgOrderByAggregateInput
@@ -20735,6 +20959,9 @@ export namespace Prisma {
     episodeId?: StringWithAggregatesFilter<"PlaybackState"> | string
     position?: IntWithAggregatesFilter<"PlaybackState"> | number
     duration?: IntWithAggregatesFilter<"PlaybackState"> | number
+    playbackSpeed?: FloatWithAggregatesFilter<"PlaybackState"> | number
+    isCompleted?: BoolWithAggregatesFilter<"PlaybackState"> | boolean
+    deviceId?: StringNullableWithAggregatesFilter<"PlaybackState"> | string | null
     lastPlayedAt?: DateTimeWithAggregatesFilter<"PlaybackState"> | Date | string
   }
 
@@ -20746,6 +20973,10 @@ export namespace Prisma {
     userId?: StringFilter<"Download"> | string
     episodeId?: StringFilter<"Download"> | string
     status?: EnumDownloadStatusFilter<"Download"> | $Enums.DownloadStatus
+    quality?: StringNullableFilter<"Download"> | string | null
+    fileSize?: IntFilter<"Download"> | number
+    localPath?: StringNullableFilter<"Download"> | string | null
+    completedAt?: DateTimeNullableFilter<"Download"> | Date | string | null
     createdAt?: DateTimeFilter<"Download"> | Date | string
     updatedAt?: DateTimeFilter<"Download"> | Date | string
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
@@ -20757,6 +20988,10 @@ export namespace Prisma {
     userId?: SortOrder
     episodeId?: SortOrder
     status?: SortOrder
+    quality?: SortOrderInput | SortOrder
+    fileSize?: SortOrder
+    localPath?: SortOrderInput | SortOrder
+    completedAt?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     user?: UserOrderByWithRelationInput
@@ -20772,6 +21007,10 @@ export namespace Prisma {
     userId?: StringFilter<"Download"> | string
     episodeId?: StringFilter<"Download"> | string
     status?: EnumDownloadStatusFilter<"Download"> | $Enums.DownloadStatus
+    quality?: StringNullableFilter<"Download"> | string | null
+    fileSize?: IntFilter<"Download"> | number
+    localPath?: StringNullableFilter<"Download"> | string | null
+    completedAt?: DateTimeNullableFilter<"Download"> | Date | string | null
     createdAt?: DateTimeFilter<"Download"> | Date | string
     updatedAt?: DateTimeFilter<"Download"> | Date | string
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
@@ -20783,11 +21022,17 @@ export namespace Prisma {
     userId?: SortOrder
     episodeId?: SortOrder
     status?: SortOrder
+    quality?: SortOrderInput | SortOrder
+    fileSize?: SortOrder
+    localPath?: SortOrderInput | SortOrder
+    completedAt?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: DownloadCountOrderByAggregateInput
+    _avg?: DownloadAvgOrderByAggregateInput
     _max?: DownloadMaxOrderByAggregateInput
     _min?: DownloadMinOrderByAggregateInput
+    _sum?: DownloadSumOrderByAggregateInput
   }
 
   export type DownloadScalarWhereWithAggregatesInput = {
@@ -20798,6 +21043,10 @@ export namespace Prisma {
     userId?: StringWithAggregatesFilter<"Download"> | string
     episodeId?: StringWithAggregatesFilter<"Download"> | string
     status?: EnumDownloadStatusWithAggregatesFilter<"Download"> | $Enums.DownloadStatus
+    quality?: StringNullableWithAggregatesFilter<"Download"> | string | null
+    fileSize?: IntWithAggregatesFilter<"Download"> | number
+    localPath?: StringNullableWithAggregatesFilter<"Download"> | string | null
+    completedAt?: DateTimeNullableWithAggregatesFilter<"Download"> | Date | string | null
     createdAt?: DateTimeWithAggregatesFilter<"Download"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Download"> | Date | string
   }
@@ -21144,7 +21393,9 @@ export namespace Prisma {
     duration?: number
     episodeNumber: number
     mediaUrl?: string | null
+    mediaKey?: string | null
     isVideo?: boolean
+    isPremium?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     content: ContentCreateNestedOneWithoutEpisodesInput
@@ -21162,7 +21413,9 @@ export namespace Prisma {
     duration?: number
     episodeNumber: number
     mediaUrl?: string | null
+    mediaKey?: string | null
     isVideo?: boolean
+    isPremium?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     playbackStates?: PlaybackStateUncheckedCreateNestedManyWithoutEpisodeInput
@@ -21178,7 +21431,9 @@ export namespace Prisma {
     duration?: IntFieldUpdateOperationsInput | number
     episodeNumber?: IntFieldUpdateOperationsInput | number
     mediaUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    mediaKey?: NullableStringFieldUpdateOperationsInput | string | null
     isVideo?: BoolFieldUpdateOperationsInput | boolean
+    isPremium?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     content?: ContentUpdateOneRequiredWithoutEpisodesNestedInput
@@ -21196,7 +21451,9 @@ export namespace Prisma {
     duration?: IntFieldUpdateOperationsInput | number
     episodeNumber?: IntFieldUpdateOperationsInput | number
     mediaUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    mediaKey?: NullableStringFieldUpdateOperationsInput | string | null
     isVideo?: BoolFieldUpdateOperationsInput | boolean
+    isPremium?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     playbackStates?: PlaybackStateUncheckedUpdateManyWithoutEpisodeNestedInput
@@ -21213,7 +21470,9 @@ export namespace Prisma {
     duration?: number
     episodeNumber: number
     mediaUrl?: string | null
+    mediaKey?: string | null
     isVideo?: boolean
+    isPremium?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -21226,7 +21485,9 @@ export namespace Prisma {
     duration?: IntFieldUpdateOperationsInput | number
     episodeNumber?: IntFieldUpdateOperationsInput | number
     mediaUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    mediaKey?: NullableStringFieldUpdateOperationsInput | string | null
     isVideo?: BoolFieldUpdateOperationsInput | boolean
+    isPremium?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -21240,7 +21501,9 @@ export namespace Prisma {
     duration?: IntFieldUpdateOperationsInput | number
     episodeNumber?: IntFieldUpdateOperationsInput | number
     mediaUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    mediaKey?: NullableStringFieldUpdateOperationsInput | string | null
     isVideo?: BoolFieldUpdateOperationsInput | boolean
+    isPremium?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -21398,9 +21661,11 @@ export namespace Prisma {
     id?: string
     contentId?: string | null
     gateway: string
+    gatewayName?: string | null
     gatewayRef: string
     amount: number
     status?: string
+    completedAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     user: UserCreateNestedOneWithoutPurchasesInput
@@ -21411,9 +21676,11 @@ export namespace Prisma {
     userId: string
     contentId?: string | null
     gateway: string
+    gatewayName?: string | null
     gatewayRef: string
     amount: number
     status?: string
+    completedAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -21422,9 +21689,11 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     contentId?: NullableStringFieldUpdateOperationsInput | string | null
     gateway?: StringFieldUpdateOperationsInput | string
+    gatewayName?: NullableStringFieldUpdateOperationsInput | string | null
     gatewayRef?: StringFieldUpdateOperationsInput | string
     amount?: IntFieldUpdateOperationsInput | number
     status?: StringFieldUpdateOperationsInput | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutPurchasesNestedInput
@@ -21435,9 +21704,11 @@ export namespace Prisma {
     userId?: StringFieldUpdateOperationsInput | string
     contentId?: NullableStringFieldUpdateOperationsInput | string | null
     gateway?: StringFieldUpdateOperationsInput | string
+    gatewayName?: NullableStringFieldUpdateOperationsInput | string | null
     gatewayRef?: StringFieldUpdateOperationsInput | string
     amount?: IntFieldUpdateOperationsInput | number
     status?: StringFieldUpdateOperationsInput | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -21447,9 +21718,11 @@ export namespace Prisma {
     userId: string
     contentId?: string | null
     gateway: string
+    gatewayName?: string | null
     gatewayRef: string
     amount: number
     status?: string
+    completedAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -21458,9 +21731,11 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     contentId?: NullableStringFieldUpdateOperationsInput | string | null
     gateway?: StringFieldUpdateOperationsInput | string
+    gatewayName?: NullableStringFieldUpdateOperationsInput | string | null
     gatewayRef?: StringFieldUpdateOperationsInput | string
     amount?: IntFieldUpdateOperationsInput | number
     status?: StringFieldUpdateOperationsInput | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -21470,9 +21745,11 @@ export namespace Prisma {
     userId?: StringFieldUpdateOperationsInput | string
     contentId?: NullableStringFieldUpdateOperationsInput | string | null
     gateway?: StringFieldUpdateOperationsInput | string
+    gatewayName?: NullableStringFieldUpdateOperationsInput | string | null
     gatewayRef?: StringFieldUpdateOperationsInput | string
     amount?: IntFieldUpdateOperationsInput | number
     status?: StringFieldUpdateOperationsInput | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -21750,6 +22027,9 @@ export namespace Prisma {
     id?: string
     position?: number
     duration?: number
+    playbackSpeed?: number
+    isCompleted?: boolean
+    deviceId?: string | null
     lastPlayedAt?: Date | string
     user: UserCreateNestedOneWithoutPlaybackStatesInput
     episode: EpisodeCreateNestedOneWithoutPlaybackStatesInput
@@ -21761,6 +22041,9 @@ export namespace Prisma {
     episodeId: string
     position?: number
     duration?: number
+    playbackSpeed?: number
+    isCompleted?: boolean
+    deviceId?: string | null
     lastPlayedAt?: Date | string
   }
 
@@ -21768,6 +22051,9 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     position?: IntFieldUpdateOperationsInput | number
     duration?: IntFieldUpdateOperationsInput | number
+    playbackSpeed?: FloatFieldUpdateOperationsInput | number
+    isCompleted?: BoolFieldUpdateOperationsInput | boolean
+    deviceId?: NullableStringFieldUpdateOperationsInput | string | null
     lastPlayedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutPlaybackStatesNestedInput
     episode?: EpisodeUpdateOneRequiredWithoutPlaybackStatesNestedInput
@@ -21779,6 +22065,9 @@ export namespace Prisma {
     episodeId?: StringFieldUpdateOperationsInput | string
     position?: IntFieldUpdateOperationsInput | number
     duration?: IntFieldUpdateOperationsInput | number
+    playbackSpeed?: FloatFieldUpdateOperationsInput | number
+    isCompleted?: BoolFieldUpdateOperationsInput | boolean
+    deviceId?: NullableStringFieldUpdateOperationsInput | string | null
     lastPlayedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -21788,6 +22077,9 @@ export namespace Prisma {
     episodeId: string
     position?: number
     duration?: number
+    playbackSpeed?: number
+    isCompleted?: boolean
+    deviceId?: string | null
     lastPlayedAt?: Date | string
   }
 
@@ -21795,6 +22087,9 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     position?: IntFieldUpdateOperationsInput | number
     duration?: IntFieldUpdateOperationsInput | number
+    playbackSpeed?: FloatFieldUpdateOperationsInput | number
+    isCompleted?: BoolFieldUpdateOperationsInput | boolean
+    deviceId?: NullableStringFieldUpdateOperationsInput | string | null
     lastPlayedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -21804,12 +22099,19 @@ export namespace Prisma {
     episodeId?: StringFieldUpdateOperationsInput | string
     position?: IntFieldUpdateOperationsInput | number
     duration?: IntFieldUpdateOperationsInput | number
+    playbackSpeed?: FloatFieldUpdateOperationsInput | number
+    isCompleted?: BoolFieldUpdateOperationsInput | boolean
+    deviceId?: NullableStringFieldUpdateOperationsInput | string | null
     lastPlayedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type DownloadCreateInput = {
     id?: string
     status?: $Enums.DownloadStatus
+    quality?: string | null
+    fileSize?: number
+    localPath?: string | null
+    completedAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     user: UserCreateNestedOneWithoutDownloadsInput
@@ -21821,6 +22123,10 @@ export namespace Prisma {
     userId: string
     episodeId: string
     status?: $Enums.DownloadStatus
+    quality?: string | null
+    fileSize?: number
+    localPath?: string | null
+    completedAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -21828,6 +22134,10 @@ export namespace Prisma {
   export type DownloadUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     status?: EnumDownloadStatusFieldUpdateOperationsInput | $Enums.DownloadStatus
+    quality?: NullableStringFieldUpdateOperationsInput | string | null
+    fileSize?: IntFieldUpdateOperationsInput | number
+    localPath?: NullableStringFieldUpdateOperationsInput | string | null
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutDownloadsNestedInput
@@ -21839,6 +22149,10 @@ export namespace Prisma {
     userId?: StringFieldUpdateOperationsInput | string
     episodeId?: StringFieldUpdateOperationsInput | string
     status?: EnumDownloadStatusFieldUpdateOperationsInput | $Enums.DownloadStatus
+    quality?: NullableStringFieldUpdateOperationsInput | string | null
+    fileSize?: IntFieldUpdateOperationsInput | number
+    localPath?: NullableStringFieldUpdateOperationsInput | string | null
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -21848,6 +22162,10 @@ export namespace Prisma {
     userId: string
     episodeId: string
     status?: $Enums.DownloadStatus
+    quality?: string | null
+    fileSize?: number
+    localPath?: string | null
+    completedAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -21855,6 +22173,10 @@ export namespace Prisma {
   export type DownloadUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     status?: EnumDownloadStatusFieldUpdateOperationsInput | $Enums.DownloadStatus
+    quality?: NullableStringFieldUpdateOperationsInput | string | null
+    fileSize?: IntFieldUpdateOperationsInput | number
+    localPath?: NullableStringFieldUpdateOperationsInput | string | null
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -21864,6 +22186,10 @@ export namespace Prisma {
     userId?: StringFieldUpdateOperationsInput | string
     episodeId?: StringFieldUpdateOperationsInput | string
     status?: EnumDownloadStatusFieldUpdateOperationsInput | $Enums.DownloadStatus
+    quality?: NullableStringFieldUpdateOperationsInput | string | null
+    fileSize?: IntFieldUpdateOperationsInput | number
+    localPath?: NullableStringFieldUpdateOperationsInput | string | null
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -22366,7 +22692,9 @@ export namespace Prisma {
     duration?: SortOrder
     episodeNumber?: SortOrder
     mediaUrl?: SortOrder
+    mediaKey?: SortOrder
     isVideo?: SortOrder
+    isPremium?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -22385,7 +22713,9 @@ export namespace Prisma {
     duration?: SortOrder
     episodeNumber?: SortOrder
     mediaUrl?: SortOrder
+    mediaKey?: SortOrder
     isVideo?: SortOrder
+    isPremium?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -22399,7 +22729,9 @@ export namespace Prisma {
     duration?: SortOrder
     episodeNumber?: SortOrder
     mediaUrl?: SortOrder
+    mediaKey?: SortOrder
     isVideo?: SortOrder
+    isPremium?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -22521,9 +22853,11 @@ export namespace Prisma {
     userId?: SortOrder
     contentId?: SortOrder
     gateway?: SortOrder
+    gatewayName?: SortOrder
     gatewayRef?: SortOrder
     amount?: SortOrder
     status?: SortOrder
+    completedAt?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -22537,9 +22871,11 @@ export namespace Prisma {
     userId?: SortOrder
     contentId?: SortOrder
     gateway?: SortOrder
+    gatewayName?: SortOrder
     gatewayRef?: SortOrder
     amount?: SortOrder
     status?: SortOrder
+    completedAt?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -22549,9 +22885,11 @@ export namespace Prisma {
     userId?: SortOrder
     contentId?: SortOrder
     gateway?: SortOrder
+    gatewayName?: SortOrder
     gatewayRef?: SortOrder
     amount?: SortOrder
     status?: SortOrder
+    completedAt?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -22710,6 +23048,17 @@ export namespace Prisma {
     position?: SortOrder
   }
 
+  export type FloatFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatFilter<$PrismaModel> | number
+  }
+
   export type PlaybackStateUserIdEpisodeIdCompoundUniqueInput = {
     userId: string
     episodeId: string
@@ -22721,12 +23070,16 @@ export namespace Prisma {
     episodeId?: SortOrder
     position?: SortOrder
     duration?: SortOrder
+    playbackSpeed?: SortOrder
+    isCompleted?: SortOrder
+    deviceId?: SortOrder
     lastPlayedAt?: SortOrder
   }
 
   export type PlaybackStateAvgOrderByAggregateInput = {
     position?: SortOrder
     duration?: SortOrder
+    playbackSpeed?: SortOrder
   }
 
   export type PlaybackStateMaxOrderByAggregateInput = {
@@ -22735,6 +23088,9 @@ export namespace Prisma {
     episodeId?: SortOrder
     position?: SortOrder
     duration?: SortOrder
+    playbackSpeed?: SortOrder
+    isCompleted?: SortOrder
+    deviceId?: SortOrder
     lastPlayedAt?: SortOrder
   }
 
@@ -22744,12 +23100,32 @@ export namespace Prisma {
     episodeId?: SortOrder
     position?: SortOrder
     duration?: SortOrder
+    playbackSpeed?: SortOrder
+    isCompleted?: SortOrder
+    deviceId?: SortOrder
     lastPlayedAt?: SortOrder
   }
 
   export type PlaybackStateSumOrderByAggregateInput = {
     position?: SortOrder
     duration?: SortOrder
+    playbackSpeed?: SortOrder
+  }
+
+  export type FloatWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedFloatFilter<$PrismaModel>
+    _min?: NestedFloatFilter<$PrismaModel>
+    _max?: NestedFloatFilter<$PrismaModel>
   }
 
   export type EnumDownloadStatusFilter<$PrismaModel = never> = {
@@ -22769,8 +23145,16 @@ export namespace Prisma {
     userId?: SortOrder
     episodeId?: SortOrder
     status?: SortOrder
+    quality?: SortOrder
+    fileSize?: SortOrder
+    localPath?: SortOrder
+    completedAt?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+  }
+
+  export type DownloadAvgOrderByAggregateInput = {
+    fileSize?: SortOrder
   }
 
   export type DownloadMaxOrderByAggregateInput = {
@@ -22778,6 +23162,10 @@ export namespace Prisma {
     userId?: SortOrder
     episodeId?: SortOrder
     status?: SortOrder
+    quality?: SortOrder
+    fileSize?: SortOrder
+    localPath?: SortOrder
+    completedAt?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -22787,8 +23175,16 @@ export namespace Prisma {
     userId?: SortOrder
     episodeId?: SortOrder
     status?: SortOrder
+    quality?: SortOrder
+    fileSize?: SortOrder
+    localPath?: SortOrder
+    completedAt?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+  }
+
+  export type DownloadSumOrderByAggregateInput = {
+    fileSize?: SortOrder
   }
 
   export type EnumDownloadStatusWithAggregatesFilter<$PrismaModel = never> = {
@@ -23853,6 +24249,14 @@ export namespace Prisma {
     connect?: EpisodeWhereUniqueInput
   }
 
+  export type FloatFieldUpdateOperationsInput = {
+    set?: number
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
   export type UserUpdateOneRequiredWithoutPlaybackStatesNestedInput = {
     create?: XOR<UserCreateWithoutPlaybackStatesInput, UserUncheckedCreateWithoutPlaybackStatesInput>
     connectOrCreate?: UserCreateOrConnectWithoutPlaybackStatesInput
@@ -24170,6 +24574,22 @@ export namespace Prisma {
     _max?: NestedEnumSubscriptionStatusFilter<$PrismaModel>
   }
 
+  export type NestedFloatWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedFloatFilter<$PrismaModel>
+    _min?: NestedFloatFilter<$PrismaModel>
+    _max?: NestedFloatFilter<$PrismaModel>
+  }
+
   export type NestedEnumDownloadStatusFilter<$PrismaModel = never> = {
     equals?: $Enums.DownloadStatus | EnumDownloadStatusFieldRefInput<$PrismaModel>
     in?: $Enums.DownloadStatus[] | ListEnumDownloadStatusFieldRefInput<$PrismaModel>
@@ -24241,9 +24661,11 @@ export namespace Prisma {
     id?: string
     contentId?: string | null
     gateway: string
+    gatewayName?: string | null
     gatewayRef: string
     amount: number
     status?: string
+    completedAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -24252,9 +24674,11 @@ export namespace Prisma {
     id?: string
     contentId?: string | null
     gateway: string
+    gatewayName?: string | null
     gatewayRef: string
     amount: number
     status?: string
+    completedAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -24369,6 +24793,9 @@ export namespace Prisma {
     id?: string
     position?: number
     duration?: number
+    playbackSpeed?: number
+    isCompleted?: boolean
+    deviceId?: string | null
     lastPlayedAt?: Date | string
     episode: EpisodeCreateNestedOneWithoutPlaybackStatesInput
   }
@@ -24378,6 +24805,9 @@ export namespace Prisma {
     episodeId: string
     position?: number
     duration?: number
+    playbackSpeed?: number
+    isCompleted?: boolean
+    deviceId?: string | null
     lastPlayedAt?: Date | string
   }
 
@@ -24394,6 +24824,10 @@ export namespace Prisma {
   export type DownloadCreateWithoutUserInput = {
     id?: string
     status?: $Enums.DownloadStatus
+    quality?: string | null
+    fileSize?: number
+    localPath?: string | null
+    completedAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     episode: EpisodeCreateNestedOneWithoutDownloadsInput
@@ -24403,6 +24837,10 @@ export namespace Prisma {
     id?: string
     episodeId: string
     status?: $Enums.DownloadStatus
+    quality?: string | null
+    fileSize?: number
+    localPath?: string | null
+    completedAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -24503,9 +24941,11 @@ export namespace Prisma {
     userId?: StringFilter<"Purchase"> | string
     contentId?: StringNullableFilter<"Purchase"> | string | null
     gateway?: StringFilter<"Purchase"> | string
+    gatewayName?: StringNullableFilter<"Purchase"> | string | null
     gatewayRef?: StringFilter<"Purchase"> | string
     amount?: IntFilter<"Purchase"> | number
     status?: StringFilter<"Purchase"> | string
+    completedAt?: DateTimeNullableFilter<"Purchase"> | Date | string | null
     createdAt?: DateTimeFilter<"Purchase"> | Date | string
     updatedAt?: DateTimeFilter<"Purchase"> | Date | string
   }
@@ -24642,6 +25082,9 @@ export namespace Prisma {
     episodeId?: StringFilter<"PlaybackState"> | string
     position?: IntFilter<"PlaybackState"> | number
     duration?: IntFilter<"PlaybackState"> | number
+    playbackSpeed?: FloatFilter<"PlaybackState"> | number
+    isCompleted?: BoolFilter<"PlaybackState"> | boolean
+    deviceId?: StringNullableFilter<"PlaybackState"> | string | null
     lastPlayedAt?: DateTimeFilter<"PlaybackState"> | Date | string
   }
 
@@ -24669,6 +25112,10 @@ export namespace Prisma {
     userId?: StringFilter<"Download"> | string
     episodeId?: StringFilter<"Download"> | string
     status?: EnumDownloadStatusFilter<"Download"> | $Enums.DownloadStatus
+    quality?: StringNullableFilter<"Download"> | string | null
+    fileSize?: IntFilter<"Download"> | number
+    localPath?: StringNullableFilter<"Download"> | string | null
+    completedAt?: DateTimeNullableFilter<"Download"> | Date | string | null
     createdAt?: DateTimeFilter<"Download"> | Date | string
     updatedAt?: DateTimeFilter<"Download"> | Date | string
   }
@@ -24929,7 +25376,9 @@ export namespace Prisma {
     duration?: number
     episodeNumber: number
     mediaUrl?: string | null
+    mediaKey?: string | null
     isVideo?: boolean
+    isPremium?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     playbackStates?: PlaybackStateCreateNestedManyWithoutEpisodeInput
@@ -24945,7 +25394,9 @@ export namespace Prisma {
     duration?: number
     episodeNumber: number
     mediaUrl?: string | null
+    mediaKey?: string | null
     isVideo?: boolean
+    isPremium?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     playbackStates?: PlaybackStateUncheckedCreateNestedManyWithoutEpisodeInput
@@ -25064,7 +25515,9 @@ export namespace Prisma {
     duration?: IntFilter<"Episode"> | number
     episodeNumber?: IntFilter<"Episode"> | number
     mediaUrl?: StringNullableFilter<"Episode"> | string | null
+    mediaKey?: StringNullableFilter<"Episode"> | string | null
     isVideo?: BoolFilter<"Episode"> | boolean
+    isPremium?: BoolFilter<"Episode"> | boolean
     createdAt?: DateTimeFilter<"Episode"> | Date | string
     updatedAt?: DateTimeFilter<"Episode"> | Date | string
   }
@@ -25158,6 +25611,9 @@ export namespace Prisma {
     id?: string
     position?: number
     duration?: number
+    playbackSpeed?: number
+    isCompleted?: boolean
+    deviceId?: string | null
     lastPlayedAt?: Date | string
     user: UserCreateNestedOneWithoutPlaybackStatesInput
   }
@@ -25167,6 +25623,9 @@ export namespace Prisma {
     userId: string
     position?: number
     duration?: number
+    playbackSpeed?: number
+    isCompleted?: boolean
+    deviceId?: string | null
     lastPlayedAt?: Date | string
   }
 
@@ -25183,6 +25642,10 @@ export namespace Prisma {
   export type DownloadCreateWithoutEpisodeInput = {
     id?: string
     status?: $Enums.DownloadStatus
+    quality?: string | null
+    fileSize?: number
+    localPath?: string | null
+    completedAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     user: UserCreateNestedOneWithoutDownloadsInput
@@ -25192,6 +25655,10 @@ export namespace Prisma {
     id?: string
     userId: string
     status?: $Enums.DownloadStatus
+    quality?: string | null
+    fileSize?: number
+    localPath?: string | null
+    completedAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -26313,7 +26780,9 @@ export namespace Prisma {
     duration?: number
     episodeNumber: number
     mediaUrl?: string | null
+    mediaKey?: string | null
     isVideo?: boolean
+    isPremium?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     content: ContentCreateNestedOneWithoutEpisodesInput
@@ -26330,7 +26799,9 @@ export namespace Prisma {
     duration?: number
     episodeNumber: number
     mediaUrl?: string | null
+    mediaKey?: string | null
     isVideo?: boolean
+    isPremium?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     playbackStates?: PlaybackStateUncheckedCreateNestedManyWithoutEpisodeInput
@@ -26390,7 +26861,9 @@ export namespace Prisma {
     duration?: IntFieldUpdateOperationsInput | number
     episodeNumber?: IntFieldUpdateOperationsInput | number
     mediaUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    mediaKey?: NullableStringFieldUpdateOperationsInput | string | null
     isVideo?: BoolFieldUpdateOperationsInput | boolean
+    isPremium?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     content?: ContentUpdateOneRequiredWithoutEpisodesNestedInput
@@ -26407,7 +26880,9 @@ export namespace Prisma {
     duration?: IntFieldUpdateOperationsInput | number
     episodeNumber?: IntFieldUpdateOperationsInput | number
     mediaUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    mediaKey?: NullableStringFieldUpdateOperationsInput | string | null
     isVideo?: BoolFieldUpdateOperationsInput | boolean
+    isPremium?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     playbackStates?: PlaybackStateUncheckedUpdateManyWithoutEpisodeNestedInput
@@ -26467,7 +26942,9 @@ export namespace Prisma {
     duration?: number
     episodeNumber: number
     mediaUrl?: string | null
+    mediaKey?: string | null
     isVideo?: boolean
+    isPremium?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     content: ContentCreateNestedOneWithoutEpisodesInput
@@ -26484,7 +26961,9 @@ export namespace Prisma {
     duration?: number
     episodeNumber: number
     mediaUrl?: string | null
+    mediaKey?: string | null
     isVideo?: boolean
+    isPremium?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     downloads?: DownloadUncheckedCreateNestedManyWithoutEpisodeInput
@@ -26566,7 +27045,9 @@ export namespace Prisma {
     duration?: IntFieldUpdateOperationsInput | number
     episodeNumber?: IntFieldUpdateOperationsInput | number
     mediaUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    mediaKey?: NullableStringFieldUpdateOperationsInput | string | null
     isVideo?: BoolFieldUpdateOperationsInput | boolean
+    isPremium?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     content?: ContentUpdateOneRequiredWithoutEpisodesNestedInput
@@ -26583,7 +27064,9 @@ export namespace Prisma {
     duration?: IntFieldUpdateOperationsInput | number
     episodeNumber?: IntFieldUpdateOperationsInput | number
     mediaUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    mediaKey?: NullableStringFieldUpdateOperationsInput | string | null
     isVideo?: BoolFieldUpdateOperationsInput | boolean
+    isPremium?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     downloads?: DownloadUncheckedUpdateManyWithoutEpisodeNestedInput
@@ -26643,7 +27126,9 @@ export namespace Prisma {
     duration?: number
     episodeNumber: number
     mediaUrl?: string | null
+    mediaKey?: string | null
     isVideo?: boolean
+    isPremium?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     content: ContentCreateNestedOneWithoutEpisodesInput
@@ -26660,7 +27145,9 @@ export namespace Prisma {
     duration?: number
     episodeNumber: number
     mediaUrl?: string | null
+    mediaKey?: string | null
     isVideo?: boolean
+    isPremium?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     playbackStates?: PlaybackStateUncheckedCreateNestedManyWithoutEpisodeInput
@@ -26742,7 +27229,9 @@ export namespace Prisma {
     duration?: IntFieldUpdateOperationsInput | number
     episodeNumber?: IntFieldUpdateOperationsInput | number
     mediaUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    mediaKey?: NullableStringFieldUpdateOperationsInput | string | null
     isVideo?: BoolFieldUpdateOperationsInput | boolean
+    isPremium?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     content?: ContentUpdateOneRequiredWithoutEpisodesNestedInput
@@ -26759,7 +27248,9 @@ export namespace Prisma {
     duration?: IntFieldUpdateOperationsInput | number
     episodeNumber?: IntFieldUpdateOperationsInput | number
     mediaUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    mediaKey?: NullableStringFieldUpdateOperationsInput | string | null
     isVideo?: BoolFieldUpdateOperationsInput | boolean
+    isPremium?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     playbackStates?: PlaybackStateUncheckedUpdateManyWithoutEpisodeNestedInput
@@ -26770,9 +27261,11 @@ export namespace Prisma {
     id?: string
     contentId?: string | null
     gateway: string
+    gatewayName?: string | null
     gatewayRef: string
     amount: number
     status?: string
+    completedAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -26809,6 +27302,9 @@ export namespace Prisma {
     episodeId: string
     position?: number
     duration?: number
+    playbackSpeed?: number
+    isCompleted?: boolean
+    deviceId?: string | null
     lastPlayedAt?: Date | string
   }
 
@@ -26816,6 +27312,10 @@ export namespace Prisma {
     id?: string
     episodeId: string
     status?: $Enums.DownloadStatus
+    quality?: string | null
+    fileSize?: number
+    localPath?: string | null
+    completedAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -26824,9 +27324,11 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     contentId?: NullableStringFieldUpdateOperationsInput | string | null
     gateway?: StringFieldUpdateOperationsInput | string
+    gatewayName?: NullableStringFieldUpdateOperationsInput | string | null
     gatewayRef?: StringFieldUpdateOperationsInput | string
     amount?: IntFieldUpdateOperationsInput | number
     status?: StringFieldUpdateOperationsInput | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -26835,9 +27337,11 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     contentId?: NullableStringFieldUpdateOperationsInput | string | null
     gateway?: StringFieldUpdateOperationsInput | string
+    gatewayName?: NullableStringFieldUpdateOperationsInput | string | null
     gatewayRef?: StringFieldUpdateOperationsInput | string
     amount?: IntFieldUpdateOperationsInput | number
     status?: StringFieldUpdateOperationsInput | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -26846,9 +27350,11 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     contentId?: NullableStringFieldUpdateOperationsInput | string | null
     gateway?: StringFieldUpdateOperationsInput | string
+    gatewayName?: NullableStringFieldUpdateOperationsInput | string | null
     gatewayRef?: StringFieldUpdateOperationsInput | string
     amount?: IntFieldUpdateOperationsInput | number
     status?: StringFieldUpdateOperationsInput | string
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -26940,6 +27446,9 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     position?: IntFieldUpdateOperationsInput | number
     duration?: IntFieldUpdateOperationsInput | number
+    playbackSpeed?: FloatFieldUpdateOperationsInput | number
+    isCompleted?: BoolFieldUpdateOperationsInput | boolean
+    deviceId?: NullableStringFieldUpdateOperationsInput | string | null
     lastPlayedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     episode?: EpisodeUpdateOneRequiredWithoutPlaybackStatesNestedInput
   }
@@ -26949,6 +27458,9 @@ export namespace Prisma {
     episodeId?: StringFieldUpdateOperationsInput | string
     position?: IntFieldUpdateOperationsInput | number
     duration?: IntFieldUpdateOperationsInput | number
+    playbackSpeed?: FloatFieldUpdateOperationsInput | number
+    isCompleted?: BoolFieldUpdateOperationsInput | boolean
+    deviceId?: NullableStringFieldUpdateOperationsInput | string | null
     lastPlayedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -26957,12 +27469,19 @@ export namespace Prisma {
     episodeId?: StringFieldUpdateOperationsInput | string
     position?: IntFieldUpdateOperationsInput | number
     duration?: IntFieldUpdateOperationsInput | number
+    playbackSpeed?: FloatFieldUpdateOperationsInput | number
+    isCompleted?: BoolFieldUpdateOperationsInput | boolean
+    deviceId?: NullableStringFieldUpdateOperationsInput | string | null
     lastPlayedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type DownloadUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     status?: EnumDownloadStatusFieldUpdateOperationsInput | $Enums.DownloadStatus
+    quality?: NullableStringFieldUpdateOperationsInput | string | null
+    fileSize?: IntFieldUpdateOperationsInput | number
+    localPath?: NullableStringFieldUpdateOperationsInput | string | null
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     episode?: EpisodeUpdateOneRequiredWithoutDownloadsNestedInput
@@ -26972,6 +27491,10 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     episodeId?: StringFieldUpdateOperationsInput | string
     status?: EnumDownloadStatusFieldUpdateOperationsInput | $Enums.DownloadStatus
+    quality?: NullableStringFieldUpdateOperationsInput | string | null
+    fileSize?: IntFieldUpdateOperationsInput | number
+    localPath?: NullableStringFieldUpdateOperationsInput | string | null
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -26980,6 +27503,10 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     episodeId?: StringFieldUpdateOperationsInput | string
     status?: EnumDownloadStatusFieldUpdateOperationsInput | $Enums.DownloadStatus
+    quality?: NullableStringFieldUpdateOperationsInput | string | null
+    fileSize?: IntFieldUpdateOperationsInput | number
+    localPath?: NullableStringFieldUpdateOperationsInput | string | null
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -27090,7 +27617,9 @@ export namespace Prisma {
     duration?: number
     episodeNumber: number
     mediaUrl?: string | null
+    mediaKey?: string | null
     isVideo?: boolean
+    isPremium?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -27113,7 +27642,9 @@ export namespace Prisma {
     duration?: IntFieldUpdateOperationsInput | number
     episodeNumber?: IntFieldUpdateOperationsInput | number
     mediaUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    mediaKey?: NullableStringFieldUpdateOperationsInput | string | null
     isVideo?: BoolFieldUpdateOperationsInput | boolean
+    isPremium?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     playbackStates?: PlaybackStateUpdateManyWithoutEpisodeNestedInput
@@ -27129,7 +27660,9 @@ export namespace Prisma {
     duration?: IntFieldUpdateOperationsInput | number
     episodeNumber?: IntFieldUpdateOperationsInput | number
     mediaUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    mediaKey?: NullableStringFieldUpdateOperationsInput | string | null
     isVideo?: BoolFieldUpdateOperationsInput | boolean
+    isPremium?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     playbackStates?: PlaybackStateUncheckedUpdateManyWithoutEpisodeNestedInput
@@ -27145,7 +27678,9 @@ export namespace Prisma {
     duration?: IntFieldUpdateOperationsInput | number
     episodeNumber?: IntFieldUpdateOperationsInput | number
     mediaUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    mediaKey?: NullableStringFieldUpdateOperationsInput | string | null
     isVideo?: BoolFieldUpdateOperationsInput | boolean
+    isPremium?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -27185,6 +27720,9 @@ export namespace Prisma {
     userId: string
     position?: number
     duration?: number
+    playbackSpeed?: number
+    isCompleted?: boolean
+    deviceId?: string | null
     lastPlayedAt?: Date | string
   }
 
@@ -27192,6 +27730,10 @@ export namespace Prisma {
     id?: string
     userId: string
     status?: $Enums.DownloadStatus
+    quality?: string | null
+    fileSize?: number
+    localPath?: string | null
+    completedAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -27207,6 +27749,9 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     position?: IntFieldUpdateOperationsInput | number
     duration?: IntFieldUpdateOperationsInput | number
+    playbackSpeed?: FloatFieldUpdateOperationsInput | number
+    isCompleted?: BoolFieldUpdateOperationsInput | boolean
+    deviceId?: NullableStringFieldUpdateOperationsInput | string | null
     lastPlayedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutPlaybackStatesNestedInput
   }
@@ -27216,6 +27761,9 @@ export namespace Prisma {
     userId?: StringFieldUpdateOperationsInput | string
     position?: IntFieldUpdateOperationsInput | number
     duration?: IntFieldUpdateOperationsInput | number
+    playbackSpeed?: FloatFieldUpdateOperationsInput | number
+    isCompleted?: BoolFieldUpdateOperationsInput | boolean
+    deviceId?: NullableStringFieldUpdateOperationsInput | string | null
     lastPlayedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -27224,12 +27772,19 @@ export namespace Prisma {
     userId?: StringFieldUpdateOperationsInput | string
     position?: IntFieldUpdateOperationsInput | number
     duration?: IntFieldUpdateOperationsInput | number
+    playbackSpeed?: FloatFieldUpdateOperationsInput | number
+    isCompleted?: BoolFieldUpdateOperationsInput | boolean
+    deviceId?: NullableStringFieldUpdateOperationsInput | string | null
     lastPlayedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type DownloadUpdateWithoutEpisodeInput = {
     id?: StringFieldUpdateOperationsInput | string
     status?: EnumDownloadStatusFieldUpdateOperationsInput | $Enums.DownloadStatus
+    quality?: NullableStringFieldUpdateOperationsInput | string | null
+    fileSize?: IntFieldUpdateOperationsInput | number
+    localPath?: NullableStringFieldUpdateOperationsInput | string | null
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutDownloadsNestedInput
@@ -27239,6 +27794,10 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
     status?: EnumDownloadStatusFieldUpdateOperationsInput | $Enums.DownloadStatus
+    quality?: NullableStringFieldUpdateOperationsInput | string | null
+    fileSize?: IntFieldUpdateOperationsInput | number
+    localPath?: NullableStringFieldUpdateOperationsInput | string | null
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -27247,6 +27806,10 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
     status?: EnumDownloadStatusFieldUpdateOperationsInput | $Enums.DownloadStatus
+    quality?: NullableStringFieldUpdateOperationsInput | string | null
+    fileSize?: IntFieldUpdateOperationsInput | number
+    localPath?: NullableStringFieldUpdateOperationsInput | string | null
+    completedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }

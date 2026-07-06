@@ -45,7 +45,10 @@ export interface JwtPayload {
 }
 
 export interface StreamUrlResponse {
-  streamUrl: string;
+  url: string;
+  expiresAt?: string;
+  contentType?: string;
+  duration?: number;
 }
 
 export const API_PREFIX = '/api/v1';

@@ -113,7 +113,9 @@ model Episode {
   duration      Int      @default(0)
   episodeNumber Int
   mediaUrl      String?
+  mediaKey      String?
   isVideo       Boolean  @default(false)
+  isPremium     Boolean  @default(false)
   createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt
 
@@ -160,15 +162,17 @@ model Subscription {
 }
 
 model Purchase {
-  id         String   @id @default(cuid())
-  userId     String
-  contentId  String?
-  gateway    String
-  gatewayRef String   @unique
-  amount     Int
-  status     String   @default("PENDING")
-  createdAt  DateTime @default(now())
-  updatedAt  DateTime @updatedAt
+  id          String    @id @default(cuid())
+  userId      String
+  contentId   String?
+  gateway     String
+  gatewayName String?
+  gatewayRef  String    @unique
+  amount      Int
+  status      String    @default("PENDING")
+  completedAt DateTime?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
@@ -242,12 +246,15 @@ model PlaylistItem {
 }
 
 model PlaybackState {
-  id           String   @id @default(cuid())
-  userId       String
-  episodeId    String
-  position     Int      @default(0)
-  duration     Int      @default(0)
-  lastPlayedAt DateTime @default(now())
+  id            String   @id @default(cuid())
+  userId        String
+  episodeId     String
+  position      Int      @default(0)
+  duration      Int      @default(0)
+  playbackSpeed Float    @default(1)
+  isCompleted   Boolean  @default(false)
+  deviceId      String?
+  lastPlayedAt  DateTime @default(now())
 
   user    User    @relation(fields: [userId], references: [id], onDelete: Cascade)
   episode Episode @relation(fields: [episodeId], references: [id], onDelete: Cascade)
@@ -257,12 +264,16 @@ model PlaybackState {
 }
 
 model Download {
-  id        String         @id @default(cuid())
-  userId    String
-  episodeId String
-  status    DownloadStatus @default(PENDING)
-  createdAt DateTime       @default(now())
-  updatedAt DateTime       @updatedAt
+  id          String         @id @default(cuid())
+  userId      String
+  episodeId   String
+  status      DownloadStatus @default(PENDING)
+  quality     String?        @default("medium")
+  fileSize    Int            @default(0)
+  localPath   String?
+  completedAt DateTime?
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
 
   user    User    @relation(fields: [userId], references: [id], onDelete: Cascade)
   episode Episode @relation(fields: [episodeId], references: [id], onDelete: Cascade)

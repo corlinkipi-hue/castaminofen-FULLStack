@@ -170,7 +170,9 @@ exports.Prisma.EpisodeScalarFieldEnum = {
   duration: 'duration',
   episodeNumber: 'episodeNumber',
   mediaUrl: 'mediaUrl',
+  mediaKey: 'mediaKey',
   isVideo: 'isVideo',
+  isPremium: 'isPremium',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
@@ -201,9 +203,11 @@ exports.Prisma.PurchaseScalarFieldEnum = {
   userId: 'userId',
   contentId: 'contentId',
   gateway: 'gateway',
+  gatewayName: 'gatewayName',
   gatewayRef: 'gatewayRef',
   amount: 'amount',
   status: 'status',
+  completedAt: 'completedAt',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
@@ -253,6 +257,9 @@ exports.Prisma.PlaybackStateScalarFieldEnum = {
   episodeId: 'episodeId',
   position: 'position',
   duration: 'duration',
+  playbackSpeed: 'playbackSpeed',
+  isCompleted: 'isCompleted',
+  deviceId: 'deviceId',
   lastPlayedAt: 'lastPlayedAt'
 };
 
@@ -261,6 +268,10 @@ exports.Prisma.DownloadScalarFieldEnum = {
   userId: 'userId',
   episodeId: 'episodeId',
   status: 'status',
+  quality: 'quality',
+  fileSize: 'fileSize',
+  localPath: 'localPath',
+  completedAt: 'completedAt',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };

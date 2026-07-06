@@ -84,7 +84,9 @@ CREATE TABLE "episodes" (
     "duration" INTEGER NOT NULL DEFAULT 0,
     "episodeNumber" INTEGER NOT NULL,
     "mediaUrl" TEXT,
+    "mediaKey" TEXT,
     "isVideo" BOOLEAN NOT NULL DEFAULT false,
+    "isPremium" BOOLEAN NOT NULL DEFAULT false,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
 
@@ -136,9 +138,11 @@ CREATE TABLE "purchases" (
     "userId" TEXT NOT NULL,
     "contentId" TEXT,
     "gateway" TEXT NOT NULL,
+    "gatewayName" TEXT,
     "gatewayRef" TEXT NOT NULL,
     "amount" INTEGER NOT NULL,
     "status" TEXT NOT NULL DEFAULT 'PENDING',
+    "completedAt" TIMESTAMP(3),
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
 
@@ -221,6 +225,9 @@ CREATE TABLE "playback_states" (
     "episodeId" TEXT NOT NULL,
     "position" INTEGER NOT NULL DEFAULT 0,
     "duration" INTEGER NOT NULL DEFAULT 0,
+    "playbackSpeed" DOUBLE PRECISION NOT NULL DEFAULT 1,
+    "isCompleted" BOOLEAN NOT NULL DEFAULT false,
+    "deviceId" TEXT,
     "lastPlayedAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
     CONSTRAINT "playback_states_pkey" PRIMARY KEY ("id")
@@ -235,6 +242,10 @@ CREATE TABLE "downloads" (
     "userId" TEXT NOT NULL,
     "episodeId" TEXT NOT NULL,
     "status" "DownloadStatus" NOT NULL DEFAULT 'PENDING',
+    "quality" TEXT DEFAULT 'medium',
+    "fileSize" INTEGER NOT NULL DEFAULT 0,
+    "localPath" TEXT,
+    "completedAt" TIMESTAMP(3),
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
 
