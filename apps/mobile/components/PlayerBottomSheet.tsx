@@ -1,4 +1,5 @@
 import { useRef, useEffect, useMemo, useCallback } from 'react';
+import { useRouter } from 'expo-router';
 import {
   View,
   Text,
@@ -102,6 +103,7 @@ export function PlayerBottomSheet() {
   const { colors } = useAppTheme();
   const styles = useThemedStyles(createStyles);
   const insets = useSafeAreaInsets();
+  const router = useRouter();
   const reducedMotion = useReducedMotion();
   const { height: screenHeight, isLandscape, isTablet } = useResponsiveLayout();
   const { seekTo, skipForward, skipBackward } = useAudioEngineContext();
@@ -213,6 +215,11 @@ export function PlayerBottomSheet() {
     togglePlay();
   }, [togglePlay]);
 
+  const openFullPlayer = useCallback(() => {
+    expand();
+    void router.push('/(tabs)/player');
+  }, [expand, router]);
+
   if (!currentEpisode) return null;
 
   const progress = currentEpisode.duration ? (position / currentEpisode.duration) * 100 : 0;
@@ -299,7 +306,7 @@ export function PlayerBottomSheet() {
             </ScalePressable>
             <Pressable
               style={styles.info}
-              onPress={expand}
+              onPress={openFullPlayer}
               accessibilityRole="button"
               accessibilityLabel={`${currentEpisode.title}، ${currentEpisode.contentTitle}`}
             >
@@ -310,7 +317,7 @@ export function PlayerBottomSheet() {
                 {currentEpisode.contentTitle}
               </Text>
             </Pressable>
-            <Pressable onPress={expand} accessibilityRole="imagebutton" accessibilityLabel="باز کردن پخش‌کننده">
+            <Pressable onPress={openFullPlayer} accessibilityRole="imagebutton" accessibilityLabel="باز کردن پخش‌کننده">
               <CoverArt
                 type={currentEpisode.contentType || 'PODCAST'}
                 coverUrl={currentEpisode.coverUrl}

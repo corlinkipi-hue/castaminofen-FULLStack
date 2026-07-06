@@ -28,3 +28,13 @@ export async function isOnboardingComplete(): Promise<boolean> {
 export async function markOnboardingComplete(): Promise<void> {
   await storage.setItem(ONBOARDING_STORAGE_KEY, '1');
 }
+
+export function getOnboardingStepState(step: number, totalSlides: number) {
+  const clampedStep = Math.max(0, Math.min(step, Math.max(0, totalSlides - 1)));
+  const isLast = clampedStep >= totalSlides - 1;
+  return {
+    isLast,
+    canGoBack: clampedStep > 0,
+    nextStep: isLast ? null : clampedStep + 1,
+  };
+}

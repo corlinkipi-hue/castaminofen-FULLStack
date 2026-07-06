@@ -19,7 +19,7 @@ export function initApiAuth(handlers: AuthHandlers) {
   authHandlers = handlers;
 }
 
-function normalizeError(status: number, body: Record<string, unknown>): ApiResponse {
+function normalizeError<T>(status: number, body: Record<string, unknown>): ApiResponse<T> {
   const message = body.message;
   const text = Array.isArray(message)
     ? String(message[0])

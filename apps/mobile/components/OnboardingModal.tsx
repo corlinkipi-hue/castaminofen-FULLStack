@@ -1,5 +1,6 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import {
+  Animated,
   Modal,
   View,
   Text,
@@ -11,6 +12,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import {
   ONBOARDING_SLIDES,
+  getOnboardingStepState,
   isOnboardingComplete,
   markOnboardingComplete,
 } from '@/lib/onboarding';
@@ -30,6 +32,25 @@ function createStyles(colors: ThemeColors) {
       paddingHorizontal: spacing.lg,
       paddingTop: spacing.lg,
     },
+    progressWrap: { marginBottom: spacing.md },
+    progressTrack: {
+      height: 6,
+      borderRadius: radius.full,
+      backgroundColor: colors.border,
+      overflow: 'hidden' as const,
+    },
+    progressFill: {
+      height: '100%' as const,
+      backgroundColor: colors.accent,
+      borderRadius: radius.full,
+    },
+    progressText: {
+      color: colors.textMuted,
+      fontSize: 12,
+      marginTop: spacing.xs,
+      textAlign: 'center' as const,
+    },
+    content: { alignItems: 'center' as const },
     dots: { flexDirection: 'row-reverse' as const, justifyContent: 'center' as const, gap: spacing.sm, marginBottom: spacing.lg },
     dot: { width: 8, height: 8, borderRadius: 4, backgroundColor: colors.border },
     dotActive: { backgroundColor: colors.accent, width: 24 },
@@ -67,6 +88,8 @@ export function OnboardingModal() {
   const { height } = useWindowDimensions();
   const [visible, setVisible] = useState(false);
   const [step, setStep] = useState(0);
+  const fadeAnim = useRef(new Animated.Value(0)).current;
+  const translateY = useRef(new Animated.Value(12)).current;
 
   useEffect(() => {
     void isOnboardingComplete().then((done) => {
@@ -74,36 +97,67 @@ export function OnboardingModal() {
     });
   }, []);
 
+  useEffect(() => {
+    if (!visible) return;
+    Animated.parallel([
+      Animated.timing(fadeAnim, { toValue: 1, duration: 220, useNativeDriver: true }),
+      Animated.timing(translateY, { toValue: 0, duration: 220, useNativeDriver: true }),
+    ]).start();
+  }, [fadeAnim, step, translateY, visible]);
+
   const finish = async () => {
     await markOnboardingComplete();
     setVisible(false);
   };
 
   const slide = ONBOARDING_SLIDES[step];
-  const isLast = step === ONBOARDING_SLIDES.length - 1;
+  const { isLast, canGoBack, nextStep } = getOnboardingStepState(step, ONBOARDING_SLIDES.length);
 
   return (
     <Modal visible={visible} animationType="slide" transparent accessibilityViewIsModal>
       <View style={styles.backdrop}>
-        <View style={[styles.sheet, { paddingBottom: Math.max(insets.bottom, spacing.lg), minHeight: height * 0.42 }]}>
-          <View style={styles.dots}>
-            {ONBOARDING_SLIDES.map((_, i) => (
-              <View key={i} style={[styles.dot, i === step && styles.dotActive]} accessibilityElementsHidden />
-            ))}
+        <Animated.View style={[styles.sheet, { paddingBottom: Math.max(insets.bottom, spacing.lg), minHeight: height * 0.42, opacity: fadeAnim, transform: [{ translateY }] }]}>
+          <View style={styles.progressWrap}>
+            <View style={styles.progressTrack}>
+              <Animated.View
+                style={[
+                  styles.progressFill,
+                  {
+                    width: `${((step + 1) / ONBOARDING_SLIDES.length) * 100}%`,
+                    opacity: fadeAnim,
+                  },
+                ]}
+              />
+            </View>
+            <Text style={styles.progressText}>{`مرحله ${step + 1} از ${ONBOARDING_SLIDES.length}`}</Text>
           </View>
 
-          <View style={styles.iconWrap}>
-            <Ionicons name={slide.icon as IconName} size={44} color={colors.accent} accessibilityElementsHidden />
-          </View>
-          <Text style={styles.title}>{slide.title}</Text>
-          <Text style={styles.desc}>{slide.description}</Text>
+          <Animated.View style={[styles.content, { opacity: fadeAnim, transform: [{ translateY }] }]}>
+            <View style={styles.dots}>
+              {ONBOARDING_SLIDES.map((_, i) => (
+                <View key={i} style={[styles.dot, i === step && styles.dotActive]} accessibilityElementsHidden />
+              ))}
+            </View>
+
+            <View style={styles.iconWrap}>
+              <Ionicons name={slide.icon as IconName} size={44} color={colors.accent} accessibilityElementsHidden />
+            </View>
+            <Text style={styles.title}>{slide.title}</Text>
+            <Text style={styles.desc}>{slide.description}</Text>
+          </Animated.View>
 
           <View style={styles.actions}>
-            <TouchableOpacity onPress={() => void finish()} style={styles.skipBtn} accessibilityRole="button" accessibilityLabel="رد کردن راهنما">
-              <Text style={styles.skipText}>رد کردن</Text>
-            </TouchableOpacity>
+            {canGoBack ? (
+              <TouchableOpacity onPress={() => setStep((s) => Math.max(0, s - 1))} style={styles.skipBtn} accessibilityRole="button" accessibilityLabel="مرحله قبل">
+                <Text style={styles.skipText}>قبلی</Text>
+              </TouchableOpacity>
+            ) : (
+              <TouchableOpacity onPress={() => void finish()} style={styles.skipBtn} accessibilityRole="button" accessibilityLabel="رد کردن راهنما">
+                <Text style={styles.skipText}>رد کردن</Text>
+              </TouchableOpacity>
+            )}
             <TouchableOpacity
-              onPress={() => (isLast ? void finish() : setStep((s) => s + 1))}
+              onPress={() => (isLast ? void finish() : setStep(() => nextStep ?? 0))}
               style={styles.nextBtn}
               accessibilityRole="button"
               accessibilityLabel={isLast ? 'شروع استفاده' : 'مرحله بعد'}
@@ -111,7 +165,7 @@ export function OnboardingModal() {
               <Text style={styles.nextText}>{isLast ? 'شروع کنید' : 'بعدی'}</Text>
             </TouchableOpacity>
           </View>
-        </View>
+        </Animated.View>
       </View>
     </Modal>
   );
