@@ -1,0 +1,43 @@
+{
+  "name": "castaminofen",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Super App رسانه‌ای — پادکست، کتاب صوتی، ویدیو",
+  "scripts": {
+    "postinstall": "pnpm generate",
+    "dev": "turbo run dev",
+    "generate": "turbo run generate",
+    "build": "turbo run build",
+    "typecheck": "turbo run typecheck",
+    "test": "turbo run test",
+    "lint": "turbo run lint",
+    "clean": "turbo run clean",
+    "format": "turbo run format",
+    "db:generate": "pnpm --filter @castaminofen/database generate",
+    "db:migrate": "pnpm --filter @castaminofen/database migrate:dev",
+    "db:seed": "pnpm --filter @castaminofen/database seed",
+    "docker:up": "docker compose up -d",
+    "docker:down": "docker compose down"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.16.0",
+    "@typescript-eslint/eslint-plugin": "^8.15.0",
+    "@typescript-eslint/parser": "^8.15.0",
+    "eslint": "^9.16.0",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "prettier": "^3.3.3",
+    "turbo": "^2.0.0",
+    "typescript": "^5.7.2"
+  },
+  "packageManager": "pnpm@9.15.0",
+  "engines": {
+    "node": ">=20.0.0",
+    "pnpm": ">=9.0.0"
+  },
+  "pnpm": {
+    "overrides": {
+      "@types/react": "19.2.17",
+      "@types/react-dom": "19.2.3"
+    }
+  }
+}
